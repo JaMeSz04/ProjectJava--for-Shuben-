@@ -18,10 +18,10 @@ import java.util.Map.Entry;
 
 public class Course {
 
-    String courseName;
-    String professorName;
-    int id;
-    Map<Student, Double> gradeList;
+    private String courseName;
+    private String professorName;
+    private int id; //Course id (me gor dai mai me gor dee)
+    private Map<Student, Double> gradeList;
 
     public Course(String name, int id) {
         courseName = name;
@@ -56,6 +56,10 @@ public class Course {
     public void addStudent(Student student) {
         if (!gradeList.containsKey(student)) {
             gradeList.put(student, 0.00);
+            try{   
+                student.addCourse(this);
+            }catch (IllegalArgumentException e)
+            { }
         } else {
             throw new IllegalArgumentException("the student has already listed in this course");
         }
@@ -64,6 +68,7 @@ public class Course {
     public void addStudent(Student student, double grade) {
         if (!gradeList.containsKey(student)) {
             gradeList.put(student, grade);
+            student.addCourse(this);
         } else {
             throw new IllegalArgumentException("the student has already listed in this course");
         }
@@ -86,6 +91,7 @@ public class Course {
         }
         return maxVal;
     }
+ 
 
     public double getMin() {
         double minVal = getMax();
@@ -152,6 +158,16 @@ public class Course {
                 entry.setValue(score);
             }
         }
+    }
+    
+    public String toString()
+    {
+        return "Course name : " + courseName + " ";
+    }
+    
+    public Map<Student, Double> getListStudents()
+    {
+        return gradeList;
     }
 
 }
