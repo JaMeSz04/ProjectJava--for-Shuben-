@@ -11,10 +11,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-/**
- *
- * @author Patipon
- */
 
 public class Course {
 
@@ -22,7 +18,7 @@ public class Course {
     private String professorName;
     private int id; //Course id (me gor dai mai me gor dee)
     private Map<Student, Double> gradeList;
-
+    
     public Course(String name, int id) {
         courseName = name;
         this.id = id;

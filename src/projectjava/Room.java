@@ -9,14 +9,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-/**
- *
- * @author Patipon
- */
+
 public class Room {
 
     Teacher teacherRoom;
     Teacher coTeacher;
+    int roomNum;
     ArrayList<Student> studentList;
     ArrayList<Course> courseForRoom;
 
@@ -37,6 +35,11 @@ public class Room {
         courseForRoom = new ArrayList<Course>();
         addCourseToAllStudent();
 
+    }
+    
+    public String getRoomName()
+    {
+        return Integer.toString(roomNum);
     }
 
     public void addStudent(Student a) {
